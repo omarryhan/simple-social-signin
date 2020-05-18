@@ -6,25 +6,27 @@ Simple social sign in for Node.js
 
 ### Google
 
+1. Import 
 ```javascript
 import { getGoogleAuthUri, getGoogleUserInfo } from 'simple-social-signin';
+```
 
+2. Get auth URI
+```javascript
 const authUri = getGoogleAuthUri({
     clientId: 'a client ID',
     redirectUri: 'https://example.com/my-google-callback',
 });  // Send this to the browser for the user to open
+```
 
-
-// Now your redirectUri will be called by the OAuth2 provider and will provide
-// you with the `code` if the user approves
-const userInfo = await getGoogleUserInfo({
+3. Get user info
+```javascript
+console.log(await getGoogleUserInfo({
     code: 'code URL query you get at /my-google-callback',
     clientId: 'a client ID',
     clientSecret: 'a client secret',
     redirectUri: 'https://example.com/my-google-callback'
-});
-
-console.log(userInfo)
+}));
 
 {
   email: '...',
@@ -52,23 +54,28 @@ console.log(userInfo)
 
 ### Facebook
 
+1. Import 
 ```javascript
 import { getFacebookAuthUri, getFacebookUserInfo } from 'simple-social-signin';
+```
 
+2. Get auth URI
+```javascript
 const authUri = getFacebookAuthUri({
     clientId: 'a client ID',
     redirectUri: 'https://example.com/my-google-callback',
     state: 'a random string'
 });
+```
 
-const userInfo = await getFacebookUserInfo({
+3. Get user info
+```javascript
+console.log(await getFacebookUserInfo({
     code: 'code URL query you get at /my-google-callback',
     clientId: 'a client ID',
     clientSecret: 'a client secret',
     redirectUri: 'https://example.com/my-facebook-callback'
-});
-
-console.log(userInfo)
+}));
 
 {
     email: '...',

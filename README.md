@@ -2,6 +2,18 @@
 
 Simple social sign in for Node.js
 
+## Setup
+
+```bash
+npm install simple-social-signin
+```
+
+or 
+
+```bash
+yarn add simple-social-signin
+```
+
 ## Usage
 
 ### Google
@@ -100,3 +112,7 @@ console.log(await getFacebookUserInfo({
     }
 }
 ```
+
+### Dependencies
+
+- Superagent HTTP lib

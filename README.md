@@ -27,7 +27,9 @@ console.log(await getGoogleUserInfo({
     clientSecret: 'a client secret',
     redirectUri: 'https://example.com/my-google-callback'
 }));
+```
 
+```
 {
   email: '...',
   family_name: '...',
@@ -76,7 +78,9 @@ console.log(await getFacebookUserInfo({
     clientSecret: 'a client secret',
     redirectUri: 'https://example.com/my-facebook-callback'
 }));
+```
 
+```
 {
     email: '...',
     id: '...',

@@ -77,7 +77,7 @@ import { getFacebookAuthUri, getFacebookUserInfo } from 'simple-social-signin';
 ```javascript
 const authUri = getFacebookAuthUri({
     clientId: 'a client ID',
-    redirectUri: 'https://example.com/my-google-callback',
+    redirectUri: 'https://example.com/my-facebook-callback',
     state: 'a random string'
 });
 ```
@@ -85,7 +85,7 @@ const authUri = getFacebookAuthUri({
 3. Get user info
 ```javascript
 console.log(await getFacebookUserInfo({
-    code: 'code URL query you get at /my-google-callback',
+    code: 'code URL query you get at /my-facebook-callback',
     clientId: 'a client ID',
     clientSecret: 'a client secret',
     redirectUri: 'https://example.com/my-facebook-callback'

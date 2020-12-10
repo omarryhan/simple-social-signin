@@ -33,7 +33,6 @@ interface GetFacebookUserTokenInterface {
     redirectUri: string;
 }
 
-
 interface GetFacebookUserInfoInterface extends GetFacebookUserTokenInterface {
     meFields?: string[];
 }

@@ -1,3 +1,9 @@
+<p align="center">
+  <p align="center">
+    <a href="https://github.com/omarryhan/simple-social-signin/actions?query=workflow%3ACI"><img alt="Build Status" src="https://github.com/omarryhan/simple-social-signin/workflows/CI/badge.svg"></a>
+  </p>
+</p>
+
 # Simple Social Signin
 
 Simple social sign in for Node.js

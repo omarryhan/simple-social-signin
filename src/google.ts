@@ -114,7 +114,7 @@ export const getGoogleAuthUri = ({
     scopes = ['email', 'profile', 'openid'],
     state,
     accessType,
-    responseType,
+    responseType = 'code',
     includeGrantedScopes,
     loginHint,
     prompt

@@ -55,8 +55,8 @@ interface GoogleUserInfoAndTokenInterface extends GoogleUserInfoInterface {
  *
  * @param redirectUri Redirect URI
  *
- * @param scopes List of scopes
- *   Default ['email', 'profile', 'openid']
+ * @param scopes (Optional)
+ *   Default ['openid', 'profile', 'email']
  *
  * @param state (Optional)
  *   A CSRF token
@@ -109,12 +109,12 @@ interface GoogleUserInfoAndTokenInterface extends GoogleUserInfoInterface {
  *        ``'select_account'`` : Prompt the user to select an account.
  */
 export const getGoogleAuthUri = ({
+    responseType = 'code',
+    scopes = ['openid', 'profile', 'email'],
     clientId,
     redirectUri,
-    scopes = ['email', 'profile', 'openid'],
     state,
     accessType,
-    responseType = 'code',
     includeGrantedScopes,
     loginHint,
     prompt
@@ -123,7 +123,9 @@ export const getGoogleAuthUri = ({
     const { searchParams } = baseUrl;
     searchParams.append('client_id', clientId);
     searchParams.append('redirect_uri', redirectUri);
-    searchParams.append('scope', scopes.join(' '));
+    if (typeof scopes !== 'undefined') {
+        searchParams.append('scope', scopes.join(' '));
+    }
     if (typeof state !== 'undefined') {
         searchParams.append('state', encodeURIComponent(state));
     }

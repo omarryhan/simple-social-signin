@@ -120,3 +120,12 @@ console.log(await getFacebookUserInfo({
 ### Dependencies
 
 - Superagent HTTP lib
+
+### Development
+
+Easiest way is to use yarn to install this package locally
+
+In your app:
+```sh
+yarn add file:./../../simple-social-signin
+```

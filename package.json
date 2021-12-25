@@ -1,7 +1,7 @@
 {
   "name": "simple-social-signin",
   "npmName": "simple-social-signin",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Simple social signin",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

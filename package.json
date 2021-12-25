@@ -1,7 +1,7 @@
 {
   "name": "simple-social-signin",
   "npmName": "simple-social-signin",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Simple social signin",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,12 +27,6 @@
     "prepare": "npm run build",
     "publish": "npm publish"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint:fix",
-      "pre-push": ""
-    }
-  },
   "devDependencies": {
     "@types/node": "^13.13.35",
     "@types/superagent": "^4.1.10",
@@ -49,7 +43,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "gh-pages": "^2.2.0",
-    "husky": "^4.3.5",
     "typedoc": "^0.17.8",
     "typescript": "^3.9.7"
   },

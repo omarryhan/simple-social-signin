@@ -68,7 +68,7 @@ interface GoogleUserInfoAndTokenInterface extends GoogleUserInfoInterface {
  *
  * @param accessType (Optional)
  *   One of: `online` or `offline`
- *   Default: `offline`
+ *   Default: `online`
  *   Indicates whether your application can refresh access tokens when
  *   the user is not present at the browser.
  *   Choose `offline` for a refreshable token
@@ -112,28 +112,36 @@ export const getGoogleAuthUri = ({
     clientId,
     redirectUri,
     scopes = ['email', 'profile', 'openid'],
-    state = undefined,
-    accessType = 'offline',
-    responseType = 'code',
-    includeGrantedScopes = false,
-    loginHint = undefined,
-    prompt = 'none'
+    state,
+    accessType,
+    responseType,
+    includeGrantedScopes,
+    loginHint,
+    prompt
 }: GetGoogleAuthUriInterface): string => {
     const baseUrl = new URL('https://accounts.google.com/o/oauth2/v2/auth');
     const { searchParams } = baseUrl;
     searchParams.append('client_id', clientId);
     searchParams.append('redirect_uri', redirectUri);
     searchParams.append('scope', scopes.join(' '));
-    if (state !== undefined) {
+    if (typeof state !== 'undefined') {
         searchParams.append('state', encodeURIComponent(state));
     }
-    searchParams.append('access_type', encodeURIComponent(accessType));
-    searchParams.append('response_type', encodeURIComponent(responseType));
-    searchParams.append('include_granted_scopes', encodeURIComponent(includeGrantedScopes));
-    if (loginHint !== undefined) {
+    if (typeof accessType !== 'undefined') {
+        searchParams.append('access_type', encodeURIComponent(accessType));
+    }
+    if (typeof responseType !== 'undefined') {
+        searchParams.append('response_type', encodeURIComponent(responseType));
+    }
+    if (typeof includeGrantedScopes !== 'undefined') {
+        searchParams.append('include_granted_scopes', encodeURIComponent(includeGrantedScopes));
+    }
+    if (typeof loginHint !== 'undefined') {
         searchParams.append('login_hint', encodeURIComponent(loginHint));
     }
-    searchParams.append('prompt', prompt);
+    if (typeof prompt !== 'undefined') {
+        searchParams.append('prompt', prompt);
+    }
 
     return baseUrl.toString();
 };
